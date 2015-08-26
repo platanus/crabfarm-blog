@@ -1,0 +1,76 @@
+# Jekyll settings
+url: "http://blog.crabfarm.io" # the base hostname & protocol for your site
+safe: false
+paginate: 10
+permalink: :title
+tag_page_layout: tags
+tag_page_dir: tags
+tag_permalink_style: pretty
+
+gems:
+  - jekyll-assets
+  - jekyll/tagging
+  - jekyll-paginate
+
+exclude:
+  - _data
+
+# Build settings
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# Fetch data settings
+data_fetch_resources:
+  - url: http://platan.us/team.json?filter=all
+    name: team
+    item_name_key: github
+
+# Jekyll compose
+post_type: md
+
+# Template options
+info:
+  title: Crabfarm
+  subtitle: Crabfarm.io blog
+  logo:         platanus_gravatar.svg
+
+  # cover_image:  bananas-background.jpg
+  # cover_image_caption: "Short North, Columbus, OH. Photo: Pineapple XVI"
+
+  twitter:      _platanus
+  github:       platanus
+
+  # Google Analytics tracking ID. Leave blank to disable tracking
+  google-analytics-id: ''
+
+  # Comments
+  disqus:
+    # Eg. "exampleblog" Set to false to disable comments
+    shortname:  crabfarm
+
+  # Sharing settings
+  sharing:
+    twitter:    true
+    facebook:   false
+    gplus:      false
+    hn:         false
+    reddit:     false
+
+#
+# jekyll-assets: see more at https://github.com/ixti/jekyll-assets
+#
+assets:
+  dirname: assets
+  baseurl: /assets/
+  sources:
+    - _assets/javascripts
+    - _assets/stylesheets
+    - _assets/images
+  js_compressor: uglifier
+  css_compressor: sass
+  cachebust: hard
+  cache: true
+  gzip: [ text/css, application/javascript ]
+  debug: false
