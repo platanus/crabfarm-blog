@@ -1,10 +1,10 @@
 /* CONFIGURATION */
 
 /* Bodytext font */
-$font: Helvetica, Arial, sans-serif;
+$font: Roboto, Helvetica, Arial, sans-serif;
 
 /* Font for headings */
-$fontheadings: Helvetica, Arial, sans-serif;
+$fontheadings: Roboto, Helvetica, Arial, sans-serif;
 
 /* Text colors */
 $text: #21272d;
@@ -12,7 +12,7 @@ $textmuted: #848484;
 $textquote: #aaa;
 $accent: #08537F;
 $balance: #146B9F;
-$banana: #F9BC12;
+$crabfarm: #bc2028;
 
 @mixin vertical_aligning_container {
     &:before {
@@ -26,6 +26,7 @@ $banana: #F9BC12;
 
 /* IMPORT CSS FILES */
 @import "normalize";
+@import "fonts";
 @import "icons";
 @import "base";
 @import "nav";
