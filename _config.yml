@@ -68,6 +68,7 @@ assets:
     - _assets/javascripts
     - _assets/stylesheets
     - _assets/images
+    - _assets/fonts
   js_compressor: uglifier
   css_compressor: sass
   cachebust: hard
