@@ -40,7 +40,7 @@ info:
   # cover_image_caption: "Short North, Columbus, OH. Photo: Pineapple XVI"
 
   twitter:      _platanus
-  github:       platanus
+  github:       platanus/crabfarm-gem
 
   # Google Analytics tracking ID. Leave blank to disable tracking
   google-analytics-id: ''
