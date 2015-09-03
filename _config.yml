@@ -34,7 +34,7 @@ post_type: md
 info:
   title: Crabfarm
   subtitle: Crabfarm.io blog
-  logo:         platanus_gravatar.svg
+  logo: crabfarm-logo.png
 
   # cover_image:  bananas-background.jpg
   # cover_image_caption: "Short North, Columbus, OH. Photo: Pineapple XVI"
