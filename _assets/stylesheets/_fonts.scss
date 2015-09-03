@@ -1,0 +1,13 @@
+@font-face {
+  font-family: Roboto;
+  font-weight: 400;
+  src:  url(asset_path('Roboto-Light.woff2')) format('woff2'),
+        url(asset_path('Roboto-Light.woff')) format('woff');
+}
+
+@font-face {
+  font-family: Roboto;
+  font-weight: 600;
+  src:  url(asset_path('Roboto-Bold.woff2')) format('woff2'),
+        url(asset_path('Roboto-Bold.woff')) format('woff');
+}

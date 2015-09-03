@@ -34,13 +34,13 @@ post_type: md
 info:
   title: Crabfarm
   subtitle: Crabfarm.io blog
-  logo:         platanus_gravatar.svg
+  logo: crabfarm-logo.png
 
   # cover_image:  bananas-background.jpg
   # cover_image_caption: "Short North, Columbus, OH. Photo: Pineapple XVI"
 
   twitter:      _platanus
-  github:       platanus
+  github:       platanus/crabfarm-gem
 
   # Google Analytics tracking ID. Leave blank to disable tracking
   google-analytics-id: ''
@@ -68,6 +68,7 @@ assets:
     - _assets/javascripts
     - _assets/stylesheets
     - _assets/images
+    - _assets/fonts
   js_compressor: uglifier
   css_compressor: sass
   cachebust: hard
