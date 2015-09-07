@@ -29,14 +29,13 @@ That's what entering into the couchsurfing dashboard looks like. If that got you
 
 ## Installation and Usage
 
-Install Pincers and [Webdriver](https://rubygems.org/gems/selenium-webdriver):
+Install Pincers:
 
 ```
-gem install selenium-webdriver
 gem install pincers
 ```
 
-Next initialize it in your script with your driver of choice (by default it's `:firefox`):
+And initialize it in your script with a driver (by default it's `:firefox`):
 
 ```ruby
 require 'pincers'
