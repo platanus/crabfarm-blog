@@ -16,11 +16,11 @@ It needed to feel natural. Finding elements, setting values, triggering events, 
 
 ```ruby
 pincers.goto "www.couchsurfing.com"
-pincers.search(href:'/users/sign_in').click
+pincers.css("[href='/users/sign_in']").click
 
-pincers.search(name:'user[login]').set 'user@example.com'
-pincers.search(name:'user[password]').set '12345'
-pincers.search(value:'Log In').click
+pincers.css("[name='user[login]']").set 'user@example.com'
+pincers.css("[name='user[password]']").set '12345'
+pincers.css("[value='Log In']").click
 
 puts pincers.url
 ```
@@ -29,14 +29,13 @@ That's what entering into the couchsurfing dashboard looks like. If that got you
 
 ## Installation and Usage
 
-Install Pincers:
-
+Install Pincers and [Webdriver](https://rubygems.org/gems/selenium-webdriver):
 ```
+gem install selenium-webdriver
 gem install pincers
 ```
 
-And initialize it in your script with a driver (by default it's `:firefox`):
-
+Next initialize it in your script with your driver of choice (by default it's `:firefox`):
 ```ruby
 require 'pincers'
 
@@ -45,7 +44,7 @@ pincers = Pincers.for_webdriver :chrome # :firefox, :phantomjs, :chrome
 
 ## Selecting elements
 
-Pincers offers two method to obtain elements from the DOM. First there is `search` (seen in the example above) which takes key-value pairs to filter elements by their attributes and then there is `css`  
+Pincers' main method to obtain elements from the DOM is `css` which returns a single element or an enumerable object depending what the selector matched. Once returned you have [different methods available](https://github.com/platanus/pincers#first-element-properties) to get the properties.
 
 Let's say we wanted to know what's [trending on rottentomatoes](http://i.imgur.com/oxO6sOA.png):
 
@@ -58,8 +57,6 @@ trending.each do |link|
   puts link.attribute('href') # same as link[:href]
 end
 ```
-
-`css` will return a single element or an enumerable object depending what the selector matched. Once returned you have [different methods available](https://github.com/platanus/pincers#first-element-properties) to get the properties.
 
 Just scraping is not that fun though, let's move on.
 
@@ -74,7 +71,7 @@ Now imagine this had to be done a hundred times. Pincers has got you covered in 
 ```ruby
 # submit form
 pincers.goto "www.correos.cl"
-pincers.search(name: 'envio').set "RT257532695HK"
+pincers.css("[name='envio']").set "RT257532695HK"
 pincers.css("#btnseguimiento").click
 ```
 
@@ -105,7 +102,7 @@ Too simple? How about a list of Burger King restaurants for a particular locatio
 
 ```ruby
 pincers.goto "www.bk.com/locations"
-pincers.search(name:'locationSearch').set "Seattle"
+pincers.css("[name='locationSearch']").set "Seattle"
 pincers.css(".locInput a.submit").click
 
 locations = pincers.css("#locationsList .location")
