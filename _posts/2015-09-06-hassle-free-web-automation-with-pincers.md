@@ -36,6 +36,7 @@ gem install pincers
 ```
 
 Next initialize it in your script with your driver of choice (by default it's `:firefox`):
+
 ```ruby
 require 'pincers'
 
