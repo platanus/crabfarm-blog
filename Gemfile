@@ -6,6 +6,7 @@ gem "jekyll-assets", "~> 1.0.0"
 gem 'rake'
 gem 'sass'
 gem 'uglifier'
+gem 'therubyracer'
 # gem 'github-pages'
 gem "rouge", "1.9.0"
 
