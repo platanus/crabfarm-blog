@@ -1,5 +1,5 @@
 web:
   restart: always
   tty: true
-  image: platanus/crabfarm-blog:0.1.5
+  image: platanus/crabfarm-blog:0.1.6
   stdin_open: true
