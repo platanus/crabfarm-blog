@@ -7,8 +7,6 @@ tags:
     - nokogiri
 ---
 
-# Pincers now supports jQuery pseudo-selectors
-
 We're happy to announce that [Pincers](https://github.com/platanus/pincers) now supports element selectors like `:has`, `:contains`, `:first`, `:disabled` and so on. If you're not in the loop Pincers is a web automation tool designed to be as easy to use as possible (check out our [previous blog post](blog.crabfarm.io/hassle-free-web-automation-with-pincers)).
 
 Pseudo-selectors are keywords used to specify the state of an element. They are cleaner and much more readable than their verbose alternatives. For example the selector `:checkbox` returns all `<input>` elements of type checkbox instead of using `input[type='checkbox']`.
