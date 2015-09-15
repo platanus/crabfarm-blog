@@ -16,11 +16,11 @@ It needed to feel natural. Finding elements, setting values, triggering events, 
 
 ```ruby
 pincers.goto "www.couchsurfing.com"
-pincers.css("[href='/users/sign_in']").click
+pincers.search("[href='/users/sign_in']").click
 
-pincers.css("[name='user[login]']").set 'user@example.com'
-pincers.css("[name='user[password]']").set '12345'
-pincers.css("[value='Log In']").click
+pincers.search("[name='user[login]']").set 'user@example.com'
+pincers.search("[name='user[password]']").set '12345'
+pincers.search("[value='Log In']").click
 
 puts pincers.url
 ```
@@ -30,12 +30,14 @@ That's what entering into the couchsurfing dashboard looks like. If that got you
 ## Installation and Usage
 
 Install Pincers and [Webdriver](https://rubygems.org/gems/selenium-webdriver):
+
 ```
 gem install selenium-webdriver
 gem install pincers
 ```
 
 Next initialize it in your script with your driver of choice (by default it's `:firefox`):
+
 ```ruby
 require 'pincers'
 
@@ -50,7 +52,7 @@ Let's say we wanted to know what's [trending on rottentomatoes](http://i.imgur.c
 
 ```rb
 pincers.goto "www.rottentomatoes.com"
-trending = pincers.css(".trendingEl li:not(.header) a")
+trending = pincers.search(".trendingEl li:not(.header) a")
 
 trending.each do |link|
   puts link.text
@@ -71,41 +73,43 @@ Now imagine this had to be done a hundred times. Pincers has got you covered in 
 ```ruby
 # submit form
 pincers.goto "www.correos.cl"
-pincers.css("[name='envio']").set "RT257532695HK"
-pincers.css("#btnseguimiento").click
+pincers.search("[name='envio']").set "RT257532695HK"
+pincers.search("#btnseguimiento").click
 ```
 
 This site has a catch though. The package status is rendered in a specific `iframe`.
 
 ```ruby
-pincers.goto frame: pincers.css("#ifSeguimiento")
+pincers.goto frame: pincers.search("#ifSeguimiento")
 ```
 
 No problem. Passing a `frame:` property to the `goto` method changes Pincers' context to that frame. And then just parse the goods.
 
 ```ruby
-status = pincers.css(".tracking tr:not(:first-child)")
+status = pincers.search(".tracking tr:not(:first-child)")
 status.each do |row|
   puts row.text
 end
 ```
 
 Gives us..
+
 ```
 ENVIO ENTREGADO   16-06-2015 12:05     SANTIAGO CDP 03
 ENVIO EN REPARTO   16-06-2015 8:09     SANTIAGO CDP 03
 ...
 ```
+
 _<small>That's spanish for 'delivered'</small>_
 
 Too simple? How about a list of Burger King restaurants for a particular location.
 
 ```ruby
 pincers.goto "www.bk.com/locations"
-pincers.css("[name='locationSearch']").set "Seattle"
-pincers.css(".locInput a.submit").click
+pincers.search("[name='locationSearch']").set "Seattle"
+pincers.search(".locInput a.submit").click
 
-locations = pincers.css("#locationsList .location")
+locations = pincers.search("#locationsList .location")
 ```
 
 Goes to the site, fills the location input and clicks search. You've seen that before but there is a detail. The page has already loaded and the element we're looking for is not there because it's waiting for the ajax response.
@@ -114,7 +118,7 @@ It's cool just tell Pincers to keep looking for it (with a time limit).
 
 ```ruby
 locations.wait(:present, timeout: 30).each do |row|
-  puts row.css(".mainAddress").text
+  puts row.search(".mainAddress").text
 end
 ```
 
@@ -132,23 +136,24 @@ Still unfazed? Maybe something more elaborate like obtaining the lowest fare fro
 ```ruby
 pincers.goto "http://www.delta.com/"
 
-pincers.css("#originCity").set "SCL" # Santiago
-pincers.css("#destinationCity").set "SDQ" # Dominican Republic
+pincers.search("#originCity").set "SCL" # Santiago
+pincers.search("#destinationCity").set "SDQ" # Dominican Republic
 
-pincers.css("#departureDate").set "11/16/2015"
-pincers.css("#returnDate").set "11/30/2015"
+pincers.search("#departureDate").set "11/16/2015"
+pincers.search("#returnDate").set "11/30/2015"
 
-pincers.css(".delta2UpCal.end .calClose").click # close date picker
+pincers.search(".delta2UpCal.end .calClose").click # close date picker
 sleep(1) # wait for date picker animation
 
-pincers.css("#flexDaysBtn").click # flexible dates
-pincers.css("#findFlightsSubmit").click
+pincers.search("#flexDaysBtn").click # flexible dates
+pincers.search("#findFlightsSubmit").click
 
-lowest = pincers.css(".lowestFare").wait(:present, timeout: 30)
+lowest = pincers.search(".lowestFare").wait(:present, timeout: 30)
 puts lowest.first.text
 ```
 
 Outputs
+
 ```
 $1,190.30
 ```
