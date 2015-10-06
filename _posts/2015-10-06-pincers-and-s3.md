@@ -1,7 +1,7 @@
 ---
 author: amosrivera
 layout: post
-title: How To: From Pincers to Amazon Web Services
+title: How To: From Pincers to Amazon S3
 excerpt: One of our latest crawlers required the ability to extract files from a website and upload them to Amazon Web Services. Here we will explain how we did it.
 tags:
     - pincers
@@ -11,7 +11,7 @@ tags:
 
 ## Introduction
 
-One of our latest crawlers required the ability to extract files from a website and upload them to Amazon Web Services. Here we will explain how we did that.
+One of our latest crawlers required the ability to extract files from a website and upload them to Amazon Storage Services. Here we will explain how we did that.
 
 For the sake of simplicity let's imagine you want to download a different space image everyday from the NASA website.
 
